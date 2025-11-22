@@ -177,5 +177,54 @@ Ejemplos:
 [presupuesto] update — query de partidas
 
 ---
+# 7. Organización Oficial de Queries en Retool (Módulo OBRA)
+
+Los nombres de queries en Retool deben seguir la estructura jerárquica basada en los submódulos del Control de Obra.
+
+Formato general:
+M02_<submodulo>_<subseccion>_query_<accion>
+
+Ejemplo:
+M02_01_01_query_inventario_material
+
+Estructura oficial:
+
+- M02_00_General
+    - M02_00_query_obras
+    - M02_00_query_detalle_obra
+
+- M02_01_Economia
+    - M02_01_01_query_inventario_material
+    - M02_01_01_query_inventario_suministro
+    - M02_01_01_query_inventario_maquinaria
+    - M02_01_01_query_inventario_herramientas
+
+    - M02_01_02_query_proveedores_catalogo
+    - M02_01_02_query_proveedores_por_obra
+    - M02_01_02_query_insertar_proveedor_obra
+
+    - M02_01_03_query_compras
+    - M02_01_03_query_compras_detalle
+    - M02_01_03_query_insertar_compra
+    - M02_01_03_query_insertar_detalle
+    - M02_01_03_query_pagos
+
+    - M02_01_04_query_presentaciones_material
+    - M02_01_04_query_insertar_presentacion
+
+- M02_02_Ejecucion
+    - M02_02_01_query_avance_obra
+    - M02_02_02_query_subcontratos
+    - M02_02_03_query_ejecucion
+
+- M02_03_Balance
+    - M02_03_01_query_balance
+    - M02_03_02_query_flujo_fondos
+
+- M02_04_Utilidades
+    - M02_04_01_query_parametros
+    - M02_04_02_query_reportes
+    - M02_04_03_query_impresiones
+
 
 FIN DEL DOCUMENTO.
