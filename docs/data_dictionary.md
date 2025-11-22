@@ -159,99 +159,85 @@ Datos teóricos — NO se modifican desde obra.
 
 ---
 
-# 🟧 3. MÓDULO OBRA
-Datos operativos — reflejan la realidad diaria.
+## Módulo Obra — Nuevo diseño
+
+### 📁 obra_general
+**obra_general_obras**
+- id
+- nombre
+- codigo
+- ubicacion
+- fecha_inicio
+- created_at
+- updated_at
 
 ---
 
-## 3.1 obra.obras
-| Columna        | Tipo       | Descripción |
-|----------------|------------|-------------|
-| id             | UUID       | ID |
-| nombre         | TEXT       | Nombre del proyecto |
-| codigo         | TEXT       | Código interno |
-| ubicacion      | TEXT       | Dirección |
-| fecha_inicio   | DATE       | Fecha |
-| created_at     | TIMESTAMPTZ | Creación |
-| updated_at     | TIMESTAMPTZ | Actualización |
+### 📁 obra_economia
 
----
+**obra_economia_proveedores_catalogo**
+- id
+- nombre
+- contacto
+- telefono
+- email
+- direccion
+- created_at
+- updated_at
 
-## 3.2 obra.obra_proveedores
-| Columna        | Tipo       | Descripción |
-|----------------|------------|-------------|
-| id             | UUID       | ID |
-| obra_id        | UUID       | FK → obras |
-| proveedor_id   | UUID       | FK → global.proveedores |
-| created_at     | TIMESTAMPTZ | Creación |
+**obra_economia_proveedores**
+- id
+- obra_id
+- proveedor_catalogo_id
+- created_at
+- updated_at
 
----
+**obra_economia_inventario_material**
+- id
+- obra_id
+- material_id
+- cantidad_presupuestada
+- cantidad_real
+- created_at
+- updated_at
 
-## 3.3 obra.inventario_material
-| Columna                | Tipo       | Descripción |
-|------------------------|------------|-------------|
-| id                     | UUID       | ID |
-| obra_id                | UUID       | FK → obras |
-| material_id            | UUID       | FK → global.materiales_base |
-| cantidad_presupuestada| NUMERIC    | Teórico |
-| cantidad_real          | NUMERIC    | Existencia real |
-| unidad_base_id         | UUID       | FK → global.unidades |
-| created_at             | TIMESTAMPTZ | Creación |
-| updated_at             | TIMESTAMPTZ | Actualización |
+**obra_economia_inventario_suministro**
+- id
+- obra_id
+- suministro (text)
+- cantidad_presupuestada
+- cantidad_real
+- unidad_id
+- created_at
+- updated_at
 
----
+**obra_economia_inventario_maquinaria**
+- id
+- obra_id
+- maquinaria (text)
+- cantidad_total
+- estado
+- created_at
+- updated_at
 
-## 3.4 obra.materiales_presentacion_obra
-| Columna           | Tipo       | Descripción |
-|-------------------|------------|-------------|
-| id                | UUID       | ID |
-| obra_id           | UUID       | FK → obras |
-| material_id       | UUID       | FK → materiales_base |
-| nombre_presentacion | TEXT     | Ej: Barra 1/2" |
-| unidad_mercado_id | UUID       | FK → unidades |
-| contiene          | NUMERIC    | Equivalencia |
-| created_at        | TIMESTAMPTZ | Creación |
-| updated_at        | TIMESTAMPTZ | Actualización |
+**obra_economia_inventario_herramientas**
+- id
+- obra_id
+- herramienta
+- cantidad_total
+- estado
+- created_at
+- updated_at
 
----
-
-## 3.5 obra.compras
-| Columna        | Tipo       | Descripción |
-|----------------|------------|-------------|
-| id             | UUID       | ID |
-| obra_id        | UUID       | FK → obras |
-| proveedor_id   | UUID       | FK → global.proveedores |
-| fecha          | DATE       | Fecha de compra |
-| observacion    | TEXT       | Comentario |
-| created_at     | TIMESTAMPTZ | Creación |
-| updated_at     | TIMESTAMPTZ | Actualización |
-
----
-
-## 3.6 obra.compras_detalle
-| Columna           | Tipo       | Descripción |
-|-------------------|------------|-------------|
-| id                | UUID       | ID |
-| compra_id         | UUID       | FK → compras |
-| presentacion_id   | UUID       | FK → materiales_presentacion_obra |
-| cantidad_mercado  | NUMERIC    | Ej: 10 bolsas |
-| precio_unitario   | NUMERIC    | Costo |
-| subtotal          | NUMERIC    | Total item |
-| created_at        | TIMESTAMPTZ | Creación |
-
----
-
-## 3.7 obra.ejecucion_material
-| Columna           | Tipo       | Descripción |
-|-------------------|------------|-------------|
-| id                | UUID       | ID |
-| obra_id           | UUID       | FK → obras |
-| material_id       | UUID       | FK → materiales_base |
-| cantidad_consumida| NUMERIC    | Cantidad |
-| fecha             | DATE       | Fecha |
-| responsable       | TEXT       | Maestro / técnico |
-| observacion       | TEXT       | Comentario |
-| created_at        | TIMESTAMPTZ | Creación |
+**obra_economia_presentacion_material**
+- id
+- obra_id
+- material_id
+- nombre_presentacion
+- unidad_mercado_id
+- contiene
+- created_at
+- updated_at
 
 ---
 
