@@ -85,25 +85,21 @@ obra_id references obra.obras(id)
 
 ---
 
-## 5. Variables internas (Retool)
+## Queries internos de Retool
+
 Formato:
+M02_<modulo>_<submodulo>_query_<descripcion>
 
-nombre_descriptivo
+Ejemplos:
+M02_01_01_query_inventario_material
+M02_01_02_query_proveedores_catalogo
+M02_02_01_query_avance_obra
 
-**Ejemplos**
-
-obra_seleccionada
-query_inventario_material
-button_agregar_proveedor
-input_buscar_material
-
-
-**Incorrecto**
-
-btn1
-obraSelect
-x
-
+Reglas:
+- Siempre minúsculas excepto prefijos M02_XX 
+- Sin espacios
+- Sin camelCase
+- Siempre incluir el submódulo de obra
 
 ---
 
