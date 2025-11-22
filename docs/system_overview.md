@@ -6,36 +6,53 @@ Este documento resume la arquitectura general del sistema, sus módulos y sus in
 
 ---
 
-# 🟥 1. Visión General
+## 🟥 1. Visión General
+Arkheon es un sistema modular inspirado en DDD, dividido en:
+- **Global** — catálogos universales (unidades, materiales base, categorías)
+- **Presupuesto** — información teórica del proyecto
+- **Obra** — operación real del proyecto
 
-Arkheon está compuesto por 3 módulos principales:
-
-1. **Global**  
-   Catálogos universales: materiales base, proveedores, unidades, categorías.
-
-2. **Presupuesto**  
-   Información teórica del proyecto (no editable desde obra).
-
-3. **Obra**  
-   Operación real: inventario, adquisiciones, presentaciones, consumos y costos.
-
-Cada módulo vive en su propio *schema* dentro de la base de datos.
+Cada módulo vive en un schema independiente.
 
 ---
 
-# 🟦 2. Módulo Global
+## 🟧 2. Módulo Obra (Control de Obra)
 
-Contiene los catálogos que TODA obra necesita:
+El módulo OBRA ahora está estructurado en 5 dominios escalables:
 
-- **unidades**: kg, m³, bolsas, barras  
-- **categorias**: acero, cemento, agregados  
-- **proveedores**: base general de proveedores  
-- **materiales_base**: materiales en su forma estándar  
-- **materiales_presentacion**: presentaciones genéricas opcionales
+### 1. `obra_general`
+Datos base:
+- obras
+- estado
+- historial
 
-Este módulo no tiene información específica de ninguna obra.  
-Es la base para estandarizar todo el sistema.
+### 2. `obra_economia`
+Economía de obra:
+- inventarios (materiales, suministros, herramientas, maquinaria)
+- adquisiciones (compras, detalle, pagos)
+- proveedores (catálogo + asignación por obra)
+- presentaciones de materiales
+- envíos a obra
+- inversiones
+- histórico
 
+### 3. `obra_ejecucion`
+Ejecución física:
+- avances
+- subcontratos
+- consumos (material, MO, equipos)
+
+### 4. `obra_balance`
+Análisis y consolidación:
+- flujo de fondos
+- balances
+- KPIs
+
+### 5. `obra_utilidades`
+Herramientas internas:
+- parámetros
+- plantillas
+- reportes
 ---
 
 # 🟩 3. Módulo Presupuesto
