@@ -12,45 +12,41 @@ Los schemas representan módulos del negocio.
 - Todo en minúsculas
 - Sin espacios, acentos ni mayúsculas
 
-**Schemas utilizados**
+## Schemas oficiales
+```
 global
 presupuesto
-obra
-obra_inventario
-obra_proveedores
-obra_adquisiciones
-obra_presentaciones
-obra_costos
+obra_general
+obra_economia
+tabla_ejecucion
+obra_balance
+obra_utilidades
+```
+
+## Tablas
+Formato obligatorio:
+```
+<dominio>_<subdominio>_<funcion>
+```
+
+Ejemplos reales:
+```
+obra_general_obras
+obra_economia_inventario_material
+obra_economia_inventario_suministro
+obra_economia_inventario_maquinaria
+obra_economia_inventario_herramientas
+obra_economia_proveedores_catalogo
+obra_economia_proveedores
+obra_economia_presentacion_material
+```
+
+## Columnas
+- Siempre minúsculas
+- Nunca camelCase
+- FK siempre con `_id`
 
 ---
-
-## 2. Tablas
-Formato obligatorio:
-
-<dominio><subdominio><funcion>
-
-
-**Ejemplos correctos**
-
-obra_inventario_material
-obra_proveedores_relacion
-global_materiales_base
-presupuesto_partidas_insumos
-
-
-**Reglas**
-- Minúsculas
-- Descriptivas
-- Sin abreviaturas confusas
-- Separadas por guion bajo
-
----
-
-## 3. Columnas
-Formato obligatorio:
-
-nombre_simple
-
 
 **Campos estándar**
 
