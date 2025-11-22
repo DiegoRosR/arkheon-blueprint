@@ -53,6 +53,22 @@ Herramientas internas:
 - parámetros
 - plantillas
 - reportes
+
+## Estructura UI del Módulo OBRA en Retool
+
+La interfaz de Control de Obra en Retool se organiza en cinco dominios, reflejando la arquitectura de datos:
+
+- M02_00_General
+- M02_01_Economia
+- M02_02_Ejecucion
+- M02_03_Balance
+- M02_04_Utilidades
+
+Cada dominio contiene queries con prefijos jerárquicos:
+
+Ejemplo:
+M02_01_01_query_inventario_material
+
 ---
 
 # 🟩 3. Módulo Presupuesto
