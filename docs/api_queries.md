@@ -129,37 +129,3 @@ WHERE im.obra_id = {{ obra_id }};
 
 
 FIN DEL DOCUMENTO.
-
-
----
-
-# 🧭 **Cómo crearlo en GitHub**
-
-1️⃣ Entrá a tu repo:  
-`arkheon-blueprint`
-
-2️⃣ Add file → Create new file
-
-3️⃣ Nombre del archivo:
-
-
-docs/api_queries.md
-
-
-4️⃣ Pegá TODO el contenido
-
-5️⃣ Commit
-
----
-
-# 🚀 Cuando lo tengas, decime:
-
-👉 **"lo tengo bro"**
-
-Y avanzamos al **PASO 10 — crear `/docs/ui_layout.md`**, donde definimos:  
-- cómo deben verse los módulos,  
-- UI/UX de Retool,  
-- estructura de contenedores,  
-- orden lógico de pantallas.  
-
-Para que cualquier IA pueda generar pantallas funcionales desde cero.
