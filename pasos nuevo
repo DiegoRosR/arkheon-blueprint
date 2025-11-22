@@ -1,0 +1,14 @@
+@github https://github.com/tu_usuario/arkheon-blueprint
+
+Estamos trabajando en ARKEHON.  
+Antes de responder, leé toda la documentación del repositorio:  
+/docs/system_overview.md  
+/docs/nomenclatura.md  
+/docs/development_guidelines.md  
+/docs/data_dictionary.md  
+/docs/workflows.md  
+/docs/integration_notes.md  
+/sql/*.sql
+
+Quiero que actúes como miembro técnico del proyecto.  
+Seguí estrictamente la arquitectura, la nomenclatura, los schemas y las reglas del Blueprint.
