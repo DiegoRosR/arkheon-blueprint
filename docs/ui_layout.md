@@ -18,6 +18,25 @@ Todos los módulos deben cumplir con:
 
 - Un **área principal** donde viven los contenedores.
 
+- # Estructura Oficial del Módulo OBRA en la UI
+
+La UI debe seguir la estructura jerárquica:
+
+General → Economía → Ejecución → Balance → Utilidades
+
+Los contenedores deben nombrarse según:
+
+obra_economia_inventario_container
+obra_economia_proveedores_container
+obra_economia_adquisiciones_container
+
+Y cada contenedor ejecuta las queries:
+
+M02_01_01_query_*
+M02_01_02_query_*
+...
+
+
 ---
 
 # 🟦 2. Nomenclatura de Contenedores
