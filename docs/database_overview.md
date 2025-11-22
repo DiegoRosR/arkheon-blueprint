@@ -118,85 +118,12 @@ erDiagram
     presupuesto_partidas ||--o{ presupuesto_partidas_insumos : "insumos"
 
 
-    %% ========================
-    %% OBRA
-    %% ========================
+```
+erDiagram
+    obra_general_obras ||--o{ obra_economia_inventario_material : "inventario"
+    obra_general_obras ||--o{ obra_economia_proveedores : "proveedores"
 
-    obra_obras {
-        UUID id PK
-        TEXT nombre
-        TEXT codigo
-        TEXT ubicacion
-        DATE fecha_inicio
-    }
+    obra_economia_proveedores_catalogo ||--o{ obra_economia_proveedores : "asignacion"
 
-    obra_obra_proveedores {
-        UUID id PK
-        UUID obra_id FK
-        UUID proveedor_id FK
-    }
-
-    obra_inventario_material {
-        UUID id PK
-        UUID obra_id FK
-        UUID material_id FK
-        NUMERIC cantidad_presupuestada
-        NUMERIC cantidad_real
-        UUID unidad_base_id FK
-    }
-
-    obra_materiales_presentacion_obra {
-        UUID id PK
-        UUID obra_id FK
-        UUID material_id FK
-        TEXT nombre_presentacion
-        UUID unidad_mercado_id FK
-        NUMERIC contiene
-    }
-
-    obra_compras {
-        UUID id PK
-        UUID obra_id FK
-        UUID proveedor_id FK
-        DATE fecha
-        TEXT observacion
-    }
-
-    obra_compras_detalle {
-        UUID id PK
-        UUID compra_id FK
-        UUID presentacion_id FK
-        NUMERIC cantidad_mercado
-        NUMERIC precio_unitario
-        NUMERIC subtotal
-    }
-
-    obra_ejecucion_material {
-        UUID id PK
-        UUID obra_id FK
-        UUID material_id FK
-        NUMERIC cantidad_consumida
-        DATE fecha
-        TEXT responsable
-        TEXT observacion
-    }
-
-    obra_obras ||--o{ obra_obra_proveedores : "proveedores asignados"
-    global_proveedores ||--o{ obra_obra_proveedores : "proveedor"
-
-    obra_obras ||--o{ obra_inventario_material : "inventario"
-    global_materiales_base ||--o{ obra_inventario_material : "material base"
-    global_unidades ||--o{ obra_inventario_material : "unidad base"
-
-    obra_obras ||--o{ obra_materiales_presentacion_obra : "presentaciones"
-    global_unidades ||--o{ obra_materiales_presentacion_obra : "unidad mercado"
-    global_materiales_base ||--o{ obra_materiales_presentacion_obra : "material"
-
-    obra_obras ||--o{ obra_compras : "compras"
-    global_proveedores ||--o{ obra_compras : "proveedor"
-
-    obra_compras ||--o{ obra_compras_detalle : "detalle"
-    obra_materiales_presentacion_obra ||--o{ obra_compras_detalle : "presentacion"
-
-    obra_obras ||--o{ obra_ejecucion_material : "consumos"
-    global_materiales_base ||--o{ obra_ejecucion_material : "material"
+    obra_economia_inventario_material ||--o{ obra_economia_presentacion_material : "presentaciones"
+```
