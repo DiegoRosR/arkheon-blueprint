@@ -27,18 +27,11 @@ Cada flujo explica el orden en que se deben ejecutar las operaciones para garant
 
 ---
 
-# 2. Asignar Proveedores a una Obra
-
-**Objetivo:** Definir qué proveedores podrán vender a esta obra.
-
-**Pasos:**
-1. Mostrar lista completa de `global.proveedores`.  
-2. El usuario selecciona los proveedores necesarios.  
-3. Insertar selección en `obra.obra_proveedores`.  
-4. Desde este punto, **solo proveedores asignados** pueden aparecer en:  
-   - compras  
-   - cotizaciones  
-   - órdenes de compra  
+## Asignación de proveedores (nuevo flujo)
+1. Registrar proveedores globales en **obra_economia_proveedores_catalogo**.
+2. Seleccionar proveedores para una obra.
+3. Insertar en **obra_economia_proveedores** con `obra_id` y `proveedor_catalogo_id`.
+4. Desde ahí, solo proveedores asignados pueden comprarse.
 
 ---
 
@@ -73,24 +66,9 @@ Cada flujo explica el orden en que se deben ejecutar las operaciones para garant
 
 ---
 
-# 5. Registrar una Compra
-
-**Objetivo:** Ingresar una compra real de materiales, suministros o herramientas.
-
-**Pasos:**
-1. Seleccionar proveedor (solo de la lista asignada).  
-2. Registrar cabecera en `obra.compras`:  
-   - proveedor_id  
-   - fecha  
-   - tipo de compra  
-
-3. Agregar ítems de compra en `obra.compras_detalle`:  
-   - material_presentacion_id  
-   - cantidad comprada  
-   - precio unitario real  
-   - subtotal  
-
-4. Cerrar la compra.
+## Compras (actualizado)
+- Las compras deben usar `proveedor_catalogo_id`.
+- Toda compra actualiza el inventario.
 
 ---
 
