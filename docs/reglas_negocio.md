@@ -53,6 +53,8 @@ Aplican a los módulos de presupuesto, obra, inventario, compras y proveedores.
    - compras
    - devoluciones
    - ajustes manuales autorizados
+   - Inventarios siempre viven en `obra_economia`.
+- El inventario inicial puede venir del presupuesto o Excel.
 
 4. La cantidad real de inventario refleja:
 
@@ -63,7 +65,7 @@ cantidad_real = cantidad_inicial + compras - consumos
 
 ---
 
-# 4. Reglas de Presentaciones de Material
+## Presentaciones
 
 1. Los materiales del presupuesto pueden tener diferentes presentaciones en obra.
 
@@ -71,6 +73,9 @@ cantidad_real = cantidad_inicial + compras - consumos
 - unidad de mercado (ej: bolsa, barra)
 - contenido (ej: 50 kg)
 - factor de conversión
+- Cada obra define sus propias presentaciones.
+- Presentaciones viven en `obra_economia_presentacion_material`.
+
 
 3. Las presentaciones son específicas de cada obra.
 
@@ -78,18 +83,17 @@ cantidad_real = cantidad_inicial + compras - consumos
 
 ---
 
-# 5. Reglas de Proveedores
-
-1. Todos los proveedores viven en `global.proveedores`.
-
-2. Una obra debe elegir qué proveedores utilizará (tabla `obra_proveedores`).
-
-3. Solo los proveedores asignados pueden aparecer en:
-- compras
-- cotizaciones
-- órdenes de compra
-
----
+## Proveedores
+- Los proveedores **no pertenecen a global**.
+- El catálogo vive en:
+```
+obra_economia_proveedores_catalogo
+```
+- La asignación por obra vive en:
+```
+obra_economia_proveedores
+```
+- Solo proveedores asignados pueden aparecer en compras.
 
 # 6. Reglas de Compras y Costos Reales
 
