@@ -28,15 +28,27 @@ Su objetivo es mantener consistencia, calidad y escalabilidad en todas las contr
 
 # 🟦 2. Reglas para SQL
 
-## 2.1 Estructura de tablas
-- Las tablas deben crearse SIEMPRE dentro de su schema correspondiente.
-- Toda tabla debe tener:
-id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-created_at TIMESTAMPTZ DEFAULT NOW(),
-updated_at TIMESTAMPTZ DEFAULT NOW()
+## SQL
+- Cada tabla debe crearse dentro de su schema correcto.
+- Tablas deben incluir:
+```
+id uuid default gen_random_uuid() primary key
+created_at timestamptz default now()
+updated_at timestamptz default now()
+```
+## Reglas nuevas:
+- Proveedores ya **no** viven en `global`.
+- Todos los proveedores viven en:
+```
+obra_economia_proveedores_catalogo
+```
+- La asignación por obra vive en:
+```
+obra_economia_proveedores
+```
+- Nuevas tablas siempre deben seguir nomenclatura oficial.
 
-markdown
-Copiar código
+---
 
 ## 2.2 Nomenclatura de columnas
 - `obra_id`, `material_id`, `proveedor_id`, etc.
@@ -75,16 +87,10 @@ query_proveedores
 input_nombre
 select_material
 
-makefile
-Copiar código
-
 Evitar:
 Container4
 MyButton1
 UntitledQuery
-
-markdown
-Copiar código
 
 ## 3.3 Queries
 - Las queries NO deben autotrigger al cargar la app.
@@ -169,9 +175,6 @@ Ejemplos:
 [obra] add — tabla compras_detalle
 [global] fix — relación de unidades
 [presupuesto] update — query de partidas
-
-yaml
-Copiar código
 
 ---
 
