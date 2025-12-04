@@ -1,6 +1,6 @@
 # ARKEHON — Nomenclatura Oficial (Resumen Profesional)
 
-Este documento define las reglas **mínimas, claras y obligatorias** para los nombres en Arkheon.  
+Este documento define las reglas **mínimas, claras y obligatorias** para los nombres en Arkheon.
 Aplican a: schemas, tablas, columnas, relaciones y variables internas.
 
 ---
@@ -13,7 +13,6 @@ Los schemas representan módulos del negocio.
 - Sin espacios, acentos ni mayúsculas
 
 ## Schemas oficiales
-```
 global
 presupuesto
 obra_general
@@ -21,16 +20,12 @@ obra_economia
 tabla_ejecucion
 obra_balance
 obra_utilidades
-```
 
 ## Tablas
 Formato obligatorio:
-```
-<dominio>_<subdominio>_<funcion>
-```
+<dominio><subdominio><funcion>
 
 Ejemplos reales:
-```
 obra_general_obras
 obra_economia_inventario_material
 obra_economia_inventario_suministro
@@ -39,7 +34,7 @@ obra_economia_inventario_herramientas
 obra_economia_proveedores_catalogo
 obra_economia_proveedores
 obra_economia_presentacion_material
-```
+
 
 ## Columnas
 - Siempre minúsculas
@@ -83,6 +78,20 @@ Reglas:
 obra_id references obra.obras(id)
 
 
+#### M02 – Control de Obra
+
+##### M02_02 – Inventario
+- **Nombre oficial de la App:** M02_02_Inventario
+- **Esquema de base de datos:** obra_inventario
+- **Sufijos de tablas esperadas:**
+  - obra_inventario.material
+  - obra_inventario.suministro
+  - obra_inventario.herramienta
+  - obra_inventario.maquinaria
+- **Convención de nombres para queries:** M02_02_QXX_descripcion
+- **Nombre del estado global:** state_obra_id
+
+
 ---
 
 ## Queries internos de Retool
@@ -96,7 +105,7 @@ M02_01_02_query_proveedores_catalogo
 M02_02_01_query_avance_obra
 
 Reglas:
-- Siempre minúsculas excepto prefijos M02_XX 
+- Siempre minúsculas excepto prefijos M02_XX
 - Sin espacios
 - Sin camelCase
 - Siempre incluir el submódulo de obra
@@ -104,9 +113,9 @@ Reglas:
 ---
 
 ## 6. Archivos del repositorio
-**/docs/** → documentación  
-**/sql/** → scripts SQL  
-**/diagrams/** → diagramas  
+**/docs/** → documentación
+**/sql/** → scripts SQL
+**/diagrams/** → diagramas
 **/examples/** → ejemplos diversos
 
 Nombres en minúsculas, sin espacios:
@@ -119,4 +128,3 @@ workflows.md
 ---
 
 FIN DEL DOCUMENTO.
-
