@@ -54,6 +54,13 @@ Herramientas internas:
 - plantillas
 - reportes
 
+### M02 – Control de Obra
+#### M02_02 – Inventario
+- Vista general del stock real de la obra.
+- Fase 1: solo lectura (no permite modificaciones).
+- Requiere el estado global `state_obra_id`.
+- Datos divididos en: materiales, suministros, maquinaria y herramientas.
+
 ## Estructura UI del Módulo OBRA en Retool
 
 La interfaz de Control de Obra en Retool se organiza en cinco dominios, reflejando la arquitectura de datos:
@@ -75,17 +82,17 @@ M02_01_01_query_inventario_material
 
 Contiene los datos teóricos del proyecto:
 
-- unidades del presupuesto  
-- materiales del presupuesto  
-- mano de obra del presupuesto  
-- equipos del presupuesto  
-- partidas  
+- unidades del presupuesto
+- materiales del presupuesto
+- mano de obra del presupuesto
+- equipos del presupuesto
+- partidas
 - insumos por partida
 
 Reglas clave:
 
-- La información del presupuesto **no se modifica desde obra**.  
-- Sirve como punto de referencia para análisis futuros.  
+- La información del presupuesto **no se modifica desde obra**.
+- Sirve como punto de referencia para análisis futuros.
 - No depende de proveedores ni compras reales.
 
 ---
@@ -105,23 +112,23 @@ Es el corazón del sistema y donde ocurre la operación real:
 
 Reglas clave:
 
-- Cada obra es independiente.  
-- Solo proveedores asignados pueden vender a esa obra.  
-- Las compras actualizan automáticamente el inventario real.  
-- Los consumos nunca afectan al presupuesto.  
+- Cada obra es independiente.
+- Solo proveedores asignados pueden vender a esa obra.
+- Las compras actualizan automáticamente el inventario real.
+- Los consumos nunca afectan al presupuesto.
 - El inventario refleja siempre la realidad actual.
 
 ---
 
 # 🟨 5. Flujo General del Sistema
 
-1. Se crea una obra.  
-2. Se asignan proveedores desde la base global.  
-3. Se importa el inventario inicial desde el presupuesto (o Excel).  
-4. Se crean presentaciones reales del material.  
-5. Se registran compras.  
-6. Las compras actualizan el inventario.  
-7. Se registran consumos de obra.  
+1. Se crea una obra.
+2. Se asignan proveedores desde la base global.
+3. Se importa el inventario inicial desde el presupuesto (o Excel).
+4. Se crean presentaciones reales del material.
+5. Se registran compras.
+6. Las compras actualizan el inventario.
+7. Se registran consumos de obra.
 8. Se analizan costos reales vs teoría.
 
 ---
@@ -150,9 +157,9 @@ arkheon-blueprint/
 
 # 🟫 7. Para qué sirve este documento
 
-- Proveer una visión rápida del sistema.  
-- Ayudar a nuevas IAs o devs a entender Arkheon sin leer todo el repositorio.  
-- Servir como punto de inicio para desarrollo y soporte.  
+- Proveer una visión rápida del sistema.
+- Ayudar a nuevas IAs o devs a entender Arkheon sin leer todo el repositorio.
+- Servir como punto de inicio para desarrollo y soporte.
 
 ---
 
