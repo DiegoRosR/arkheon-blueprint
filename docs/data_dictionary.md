@@ -1,6 +1,6 @@
 # ARKEHON — Diccionario de Datos (Data Dictionary)
 
-Este documento describe todas las tablas y columnas del sistema Arkheon.  
+Este documento describe todas las tablas y columnas del sistema Arkheon.
 Su objetivo es proveer una referencia técnica clara para desarrolladores, IA y documentación futura.
 
 ---
@@ -236,6 +236,46 @@ Datos teóricos — NO se modifican desde obra.
 - nombre_presentacion
 - unidad_mercado_id
 - contiene
+- created_at
+- updated_at
+
+## M02_02 – Inventario (obra_inventario)
+
+### obra_inventario.material
+- id (uuid, PK)
+- obra_id (uuid, FK → obra_general_obras.id)
+- material_id (uuid, FK → global.materiales_base.id)
+- cantidad_presupuestada (numeric)
+- cantidad_real (numeric)
+- unidad_id (uuid, FK → global.unidades.id)
+- created_at (timestamptz)
+- updated_at (timestamptz)
+
+### obra_inventario.suministro
+- id (uuid)
+- obra_id (uuid)
+- suministro (text)
+- cantidad_presupuestada (numeric)
+- cantidad_real (numeric)
+- unidad_id (uuid)
+- created_at (timestamptz)
+- updated_at (timestamptz)
+
+### obra_inventario.maquinaria
+- id (uuid)
+- obra_id (uuid)
+- maquinaria (text)
+- cantidad_total (numeric)
+- estado (text)
+- created_at
+- updated_at
+
+### obra_inventario.herramienta
+- id (uuid)
+- obra_id (uuid)
+- herramienta (text)
+- cantidad_total (numeric)
+- estado (text)
 - created_at
 - updated_at
 
